@@ -7,6 +7,9 @@ from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
+# importing pickle to save model and load later on
+import pickle
+
 # reading dataset and storing in variable
 data = pd.read_csv("Used_Bikes.csv")
 
