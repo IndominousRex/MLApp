@@ -21,7 +21,7 @@ x = data[['kms_driven', 'owner', 'age', 'power', 'brand']]
 # the owner and brand variables are categorical so we are creating dumy variables for them
 x = pd.get_dummies(data=x, columns=['owner'])
 x = pd.get_dummies(data=x, columns=['brand'])
-
+print(x.columns)
 # storing dependant variable price in y
 y = data[['price']]
 
