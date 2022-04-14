@@ -1,14 +1,13 @@
-# importing numpy and pandas libraries
-import numpy as np
-import pandas as pd
-
-# importing linear regressor, train test split and error libraries
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-
-# importing pickle to save model and load later on
+# importing libraries
 import pickle
+from sklearn.linear_model import LinearRegression
+import numpy as np
+from openpyxl import NUMPY
+import pandas as pd
+import warnings
+
+# ignoring warnings
+warnings.filterwarnings('ignore')
 
 # reading dataset and storing in variable
 data = pd.read_csv("Used_Bikes.csv")
@@ -26,13 +25,11 @@ x = pd.get_dummies(data=x, columns=['brand'])
 # storing dependant variable price in y
 y = data[['price']]
 
-# randomly spiltting data into train and test with 75% used for training and 25% for testing
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.25)
-
 # calling the regressor and fitting the model
 regressor = LinearRegression()
-regressor.fit(x_train, y_train)
+regressor.fit(x, y)
 
+pickle.dump(regressor, open('model.pkl', 'wb'))
 
-y_pred = regressor.predict(x_test)
-print("MSE = ", np.sqrt(mean_squared_error(y_test, y_pred)))
+model = pickle.load(open('model.pkl', 'rb'))
+print(np.e**model.predict([x.iloc[1]]))
