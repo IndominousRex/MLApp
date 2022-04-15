@@ -19,8 +19,7 @@
 
         <!-- Main Input For Receiving Query to our ML -->
         <form action="{{ url_for('predict')}}" method="post">
-            <input type="text" name="Kilometers driven" placeholder="Engine Size" required="required" />
-            <input type="text" name="Owner" placeholder="Cylinders" required="required" />
+            <input type="text" name="Distance driven" placeholder="Distance driven (in kms)" required="required" />
             <input type="text" name="Age" placeholder="Fuel" required="required" />
             <input type="text" name="Power" placeholder="Fuel" required="required" />
             <label for="Owner">Choose owner</label>
