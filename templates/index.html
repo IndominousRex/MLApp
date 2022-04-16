@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>CO2 Emission Predictor</title>
+    <title>Used Bike Price Predictor</title>
     <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
@@ -14,8 +14,8 @@
 
 <body>
     <div class="login">
-        <h1>Predict CO2 Emission of Vehicles</h1>
-        <h3> Enter the following values to predict the CO2 emission from the vehicle</h3>
+        <h1>Predicts the price of used bikes</h1>
+        <h3>Enter the following values </h3>
 
         <!-- Main Input For Receiving Query to our ML -->
         <form action="{{ url_for('predict')}}" method="post">
@@ -23,14 +23,14 @@
             <input type="text" name="Age" placeholder="Age" required="required" />
             <input type="text" name="Power" placeholder="Power" required="required" />
             <label for="Owner">Choose owner</label>
-            <select name="Owner" id="Owner">
+            <select name="Owner" id="Owner" required="required">
                 <option>First Owner</option>
                 <option>Second Owner</option>
                 <option>Third Owner</option>
                 <option>Fourth Owner or more</option>
             </select>
             <label for="Brand">Choose Brand</label>
-            <select name="Brand" id="Owner">
+            <select name="Brand" id="Owner" required="required">
                 <option>BMW</option>
                 <option>Bajaj</option>
                 <option>Benelli</option>

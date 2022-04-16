@@ -21,7 +21,7 @@ x = data[['kms_driven', 'owner', 'age', 'power', 'brand']]
 x = pd.get_dummies(data=x, columns=['owner'])
 x = pd.get_dummies(data=x, columns=['brand'])
 
-# storing dependant variable price in y
+# storing dependant variable in y
 y = data[['price']]
 
 # calling the regressor and fitting the model
