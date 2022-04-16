@@ -2,7 +2,6 @@
 import pickle
 from sklearn.linear_model import LinearRegression
 import numpy as np
-from openpyxl import NUMPY
 import pandas as pd
 import warnings
 
@@ -32,4 +31,4 @@ regressor.fit(x, y)
 pickle.dump(regressor, open('model.pkl', 'wb'))
 
 model = pickle.load(open('model.pkl', 'rb'))
-print(np.e**model.predict([np.random.random(30)]))
+print(np.e**model.predict([x.loc[0, :]])[0, 0])

@@ -22,10 +22,10 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = np.zeros((1, 30))
-    int_features[0, 0] = request.form.get("Distance driven")
-    int_features[0, 1] = request.form.get("Age")
-    int_features[0, 2] = request.form.get("Power")
+    int_features = np.zeros((30))
+    int_features[0] = request.form.get("Distance driven")
+    int_features[1] = request.form.get("Age")
+    int_features[2] = request.form.get("Power")
     d = {"First Owner": 3,
          "Second Owner": 5,
          "Fourth Owner or more": 4,
@@ -54,15 +54,14 @@ def predict():
          "Yamaha": 28,
          "Yezdi": 29}
     o = request.form.get("Owner")
-    int_features[0, d[o]] = 1
+    int_features[d[o]] = 1
     b = request.form.get("Brand")
-    int_features[0, d[b]] = 1
-    final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
+    int_features[d[b]] = 1
+    prediction = model.predict([int_features])
 
-    output = round(np.e ^ prediction[0], 2)
+    output = np.round((np.e ** prediction[0])[0], 2)
 
-    return render_template('index.html', prediction_text='Price of the bike is :{}'.format(output))
+    return render_template('index.html', prediction_text='Predicted price of the used bike is: Rs.{}'.format(output))
 
 
 if __name__ == "__main__":
