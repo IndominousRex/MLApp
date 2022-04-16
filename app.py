@@ -23,6 +23,9 @@ def predict():
     For rendering results on HTML GUI
     '''
     int_features = np.zeros((1, 30))
+    int_features[0, 0] = request.form.get("Distance driven")
+    int_features[0, 1] = request.form.get("Age")
+    int_features[0, 2] = request.form.get("Power")
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
