@@ -54,6 +54,9 @@ def predict():
          "Yamaha": 28,
          "Yezdi": 29}
     o = request.form.get("Owner")
+    int_features[0, d[o]] = 1
+    b = request.form.get("Brand")
+    int_features[0, d[b]] = 1
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
