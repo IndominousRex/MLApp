@@ -26,6 +26,9 @@ def predict():
     int_features[0, 0] = request.form.get("Distance driven")
     int_features[0, 1] = request.form.get("Age")
     int_features[0, 2] = request.form.get("Power")
+    d = {"First Owner": 3, "Second Owner": 5,
+         "Fourth Owner or more": 4, "Third Owner": 6, }
+    o = request.form.get("Owner")
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
