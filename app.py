@@ -22,7 +22,7 @@ def predict():
     '''
     For rendering results on HTML GUI
     '''
-    int_features = [float(x) for x in request.form.values()]
+    int_features = np.zeros((1, 30))
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 

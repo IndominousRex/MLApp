@@ -21,7 +21,7 @@ x = data[['kms_driven', 'owner', 'age', 'power', 'brand']]
 # the owner and brand variables are categorical so we are creating dumy variables for them
 x = pd.get_dummies(data=x, columns=['owner'])
 x = pd.get_dummies(data=x, columns=['brand'])
-print(x.columns.shape)
+
 # storing dependant variable price in y
 y = data[['price']]
 
@@ -32,4 +32,4 @@ regressor.fit(x, y)
 pickle.dump(regressor, open('model.pkl', 'wb'))
 
 model = pickle.load(open('model.pkl', 'rb'))
-print(np.e**model.predict([x.iloc[1]]))
+print(np.e**model.predict([np.random.random(30)]))
