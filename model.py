@@ -4,7 +4,6 @@ from sklearn.linear_model import LinearRegression
 import numpy as np
 import pandas as pd
 import warnings
-
 # ignoring warnings
 warnings.filterwarnings('ignore')
 
@@ -31,4 +30,4 @@ regressor.fit(x, y)
 pickle.dump(regressor, open('model.pkl', 'wb'))
 
 model = pickle.load(open('model.pkl', 'rb'))
-print(np.e**model.predict([x.loc[0, :]])[0, 0])
+print(np.e**model.predict([x.loc[50, :]])[0, 0])
